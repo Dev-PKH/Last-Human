@@ -132,7 +132,7 @@ public class Enemy : MonoBehaviour
     {
         if (curHp < 0) return;
 
-        curDelay += Time.deltaTime;
+        curDelay += Time.fixedDeltaTime;
         if (curDelay < AttackDelay || isSturn) return;
 
         if (type == EEnemy.EBoss)
