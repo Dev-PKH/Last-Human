@@ -14,6 +14,8 @@ TagManager:
   - Bullet
   - Weapon
   - Bomb
+  - Hp
+  - Stamina
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - PlayerSkill
   - 
   - 
   - 

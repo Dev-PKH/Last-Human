@@ -222,7 +222,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Melee")
+        if(!isDead && other.tag == "Melee")
         {
             Weapon weapon = other.GetComponent<Weapon>();
             curHp -= weapon.damage;
@@ -230,7 +230,7 @@ public class Enemy : MonoBehaviour
 
             StartCoroutine(OnDamage(reactVec, weapon.bouncingPower));
         }
-        else if(other.tag == "Bullet")
+        else if(!isDead && other.tag == "Bullet")
         {
             Bullet bullet = other.GetComponent<Bullet>();
             curHp -= bullet.damage;
@@ -239,7 +239,7 @@ public class Enemy : MonoBehaviour
 
             StartCoroutine(OnDamage(reactVec, bullet.bouncingPower));
         }
-        else if(other.tag == "PlayerSkill")
+        else if(!isDead && other.tag == "PlayerSkill")
         {
             SkillItem item = other.GetComponent<SkillItem>();
             if(item.eSkill != ESkill.ESpawn)
