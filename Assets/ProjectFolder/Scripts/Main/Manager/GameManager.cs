@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public Text ResultText;
     public bool isBoss;
     public int BossCnt =0;
-    public int curBoss = -1;
+    //public int curBoss = -1;
 
     private void Awake()
     {
@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
         progress.value = complete * 0.25f;
 
-        if (complete == 4)
+        if (complete == 4 && isClear)
             ResultText.text = "CLEAR!!!";
 
         for (int i = 0; i < complete; i++)
@@ -84,8 +84,8 @@ public class GameManager : MonoBehaviour
         isClear = true;
         AudioManager.instance.PlaySound(EAudio.GameClear);
 
-        overImg.gameObject.SetActive(true);
         Result();
+        overImg.gameObject.SetActive(true);
     }
 
     public void Boss(int num)
@@ -97,6 +97,6 @@ public class GameManager : MonoBehaviour
     public void CheckMidleBoss()
     {
         BossCnt++;
-        if (BossCnt != 3) isBoss = false; 
+        if (BossCnt < 4) isBoss = false; 
     }
 }
