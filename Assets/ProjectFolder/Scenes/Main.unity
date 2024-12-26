@@ -540,7 +540,7 @@ MonoBehaviour:
   ResultText: {fileID: 1783734530}
   isBoss: 0
   BossCnt: 0
-  curBoss: -1
+  spawnOn: 0
 --- !u!4 &545660523
 Transform:
   m_ObjectHideFlags: 0

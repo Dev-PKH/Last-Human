@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
     {
 		timer += Time.deltaTime;
 
+		if (!GameManager.instance.spawnOn) return;
         if (timer > 2f && GameManager.instance.curEnemy < maxEnemy && !GameManager.instance.isOver && !GameManager.instance.isBoss && !GameManager.instance.isClear)
         {
             upgarade++;

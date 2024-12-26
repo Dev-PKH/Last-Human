@@ -70,7 +70,6 @@ public class Stat : MonoBehaviour
         if (CurrentValue < maxValue) { //변경
             yield return new WaitForSeconds(1);
             CurrentValue += lerpSpeed;
-            //CurrentValue = 30; // 스킬테스트할려고
 
             StartCoroutine("Gauge", 1);
         }

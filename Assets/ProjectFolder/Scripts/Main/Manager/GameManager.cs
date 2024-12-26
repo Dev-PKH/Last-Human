@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public bool isBoss;
     public int BossCnt =0;
     //public int curBoss = -1;
+    public bool spawnOn = false;
 
     private void Awake()
     {

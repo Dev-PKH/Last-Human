@@ -46,8 +46,6 @@ public class PoolManager : MonoBehaviour
 
     public void LevelUp()
     {
-        //prefabs[0].GetComponent<Enemy>().maxHp += 50
-
         if (curCnt < maxCnt)
         {
             curCnt++;

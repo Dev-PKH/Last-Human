@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
 	public AudioClip[] EffectAudio;
 	public AudioClip[] BGMAudio;
 
-	// Start is called before the first frame update
 	void Awake()
     {
         if (instance == null)

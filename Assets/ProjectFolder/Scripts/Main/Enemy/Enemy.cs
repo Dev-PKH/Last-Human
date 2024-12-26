@@ -220,6 +220,39 @@ public class Enemy : MonoBehaviour
         isNav = true;
     }
 
+    IEnumerator StopEnemy()
+    {
+        rigid.velocity = Vector3.zero;
+        rigid.angularVelocity = Vector3.zero;
+
+        isNav = false;
+        nav.speed = 0;
+        isSturn = true;
+        anim.SetTrigger("doSturn");
+
+
+        yield return new WaitForSeconds(sturnDelay);
+        isNav = true;
+        isSturn = false;
+
+        if (type != EEnemy.EBasic)
+        {
+            nav.speed = speed / 2.0f;
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    public void Sturn()
+    {
+        if (curHp > 0)
+        {
+            StopCoroutine(StopEnemy());
+            StartCoroutine(StopEnemy());
+            nav.speed = speed;
+        }
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(!isDead && other.tag == "Melee")
@@ -259,38 +292,6 @@ public class Enemy : MonoBehaviour
         StartCoroutine(OnDamage(rigidVec, 50.0f));
     }
 
-    public void Sturn()
-    {      
-        if(curHp > 0)
-        {
-            StopCoroutine(StopEnemy());
-            StartCoroutine(StopEnemy());
-            nav.speed = speed;
-        }
-
-    }
-
-    IEnumerator StopEnemy()
-    {
-        rigid.velocity = Vector3.zero;
-        rigid.angularVelocity = Vector3.zero;
-
-        isNav = false;
-        nav.speed = 0;
-        isSturn = true;
-        anim.SetTrigger("doSturn");
-
-
-        yield return new WaitForSeconds(sturnDelay);
-        isNav = true;
-        isSturn = false;
-
-        if (type != EEnemy.EBasic)
-        {
-            nav.speed = speed / 2.0f;
-            yield return new WaitForSeconds(1f);
-        }
-    }
 
     void DropItem(Vector3 vec)
     {
