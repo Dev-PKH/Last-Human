@@ -30,7 +30,6 @@ public class SkillManager : MonoBehaviour
         switch (type)
         {
             case ECharacter.Girl:
-                //ball
                 GenerateBird(type);
                 break;
             case ECharacter.Boy:

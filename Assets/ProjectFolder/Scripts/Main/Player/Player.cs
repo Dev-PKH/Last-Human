@@ -74,7 +74,6 @@ public class Player : MonoBehaviour
     // Enemy
     bool isDamaged;
 
-
     void Awake()
     {
         anim = GetComponent<Animator>();
@@ -97,7 +96,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (isDead) return;
@@ -321,6 +319,10 @@ public class Player : MonoBehaviour
                 hpStat.CurrentValue -= curDamage;
                 StartCoroutine(OnDamaged());
             }
+        }
+        else if(other.tag == "Floor")
+        {
+            GameManager.instance.spawnOn = true;
         }
     }
 
